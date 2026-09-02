@@ -1,0 +1,23 @@
+{
+  "schema": "vertex.brain.ui-neural-observatory.v2",
+  "artifact_id": "VERTEX_BRAIN_THRONE_RECONSTRUCTION_002000",
+  "primary_target": "49-inch left-half / 2560x1440-class",
+  "page_scroll": "FORBIDDEN_FIRST",
+  "header_layout": "ISOLATED_TITLE_STATUS_ACTIONS_WITH_TYPE_GROWTH",
+  "font_policy": "BASE_10_TO_12PT_WITH_GLOBAL_OFFSET_MINUS_3_TO_PLUS_3",
+  "typography_scale_offset_default_pt": 0,
+  "default_language": "ja",
+  "language_preference": "PERSISTENT_LOCAL",
+  "center_priority": "PROTECTED",
+  "reference_panels": "DIAGNOSTICS_DRAWER",
+  "topology_truth": {
+    "current_canvas_source": "32C_RESIDENT_PASSIVE_READ",
+    "resident_count_source": "32C aggregate status",
+    "cell_energy_source": "32C passive read",
+    "arrival_source": "32C resident probe",
+    "layout": "DETERMINISTIC_3D_PROJECTION_ROOT_1_INNER_14_OUTER_17",
+    "root_links": "DRAWN_ONLY_WHEN_ROOT_DEGREE_EQUALS_INNER_SHELL_COUNT",
+    "fake_32c_nodes": "FORBIDDEN",
+    "future_topologies": "NOT_MOUNTED"
+  }
+}

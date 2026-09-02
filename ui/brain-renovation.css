@@ -1,0 +1,167 @@
+/* VERTEX BRAIN SYSTEM — NEURAL OBSERVATORY / THRONE RECONSTRUCTION */
+:root{
+  --font-growth:max(0pt,calc(var(--font-adjust) - 2pt));
+  --vbs-gap:clamp(5px,.34vw,9px);
+  --vbs-pad:clamp(7px,.46vw,12px);
+  --vbs-topbar:calc(61px + var(--font-growth));
+  --vbs-metrics:calc(52px + var(--font-growth));
+  --vbs-evidence:104px;
+}
+html,body,.app-shell,.brain-main{overflow:hidden!important}
+body{color:#c8d7e1;background:#02060a}
+.app-shell{min-width:0!important;grid-template-columns:64px minmax(0,1fr)!important}
+.brain-main{height:100vh!important;min-width:0!important;padding:var(--vbs-pad)!important;gap:var(--vbs-gap)!important;display:grid!important;grid-template-rows:var(--vbs-topbar) var(--vbs-metrics) minmax(0,1fr) var(--vbs-evidence)!important}
+.topbar,.metric-strip,.cockpit,.evidence-stream{min-height:0!important}
+
+/* Header: status and controls are peripheral; the product identity remains quiet. */
+.topbar{height:auto!important;min-width:0!important;grid-template-columns:clamp(220px,12vw,280px) minmax(460px,1fr) clamp(385px,21vw,455px)!important;gap:var(--vbs-gap)!important}
+.title-lockup h1{font-size:calc(20px + var(--font-adjust));letter-spacing:.24em}
+.title-lockup p{font-size:calc(6px + var(--font-adjust));letter-spacing:.17em;color:#6e879a}.title-lockup p b{color:#7fcfe5;font-weight:600}
+.top-actions{min-width:0!important;grid-template-columns:minmax(110px,1fr) minmax(105px,1fr) 42px minmax(112px,1fr)!important;gap:6px!important}
+.icon-hud{font-size:17px!important;padding:0}.clock{min-width:0}
+
+/* Summary strip: the Resident card receives more visual weight. */
+.metric-strip{height:auto!important;grid-template-columns:1.35fr 1.1fr 1.1fr 1fr .9fr .9fr .8fr!important;gap:var(--vbs-gap)!important}
+.metric-card{min-width:0!important;padding:5px 8px!important}
+.metric-card small{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.metric-card strong{position:relative;z-index:2}
+.vcell-core-metric{border-color:rgba(75,210,255,.48)!important;background:linear-gradient(100deg,rgba(14,53,72,.72),rgba(6,17,27,.94))!important;box-shadow:inset 3px 0 0 #48d9ff,0 0 24px rgba(23,160,220,.10)!important}
+
+/* Three-column observatory. Center always dominates. */
+.cockpit{min-height:0!important;min-width:0!important;grid-template-columns:clamp(265px,15.5vw,330px) minmax(560px,1fr) clamp(335px,19.8vw,420px)!important;gap:var(--vbs-gap)!important}
+.left-stack,.right-stack{min-height:0!important;overflow:hidden!important;display:grid!important;gap:var(--vbs-gap)!important}
+.left-stack{grid-template-rows:minmax(180px,.92fr) minmax(285px,1.4fr) minmax(190px,.95fr)!important}
+.right-stack{grid-template-rows:minmax(215px,1fr) minmax(285px,1.35fr) minmax(105px,.54fr)!important}
+.panel{min-height:0!important;border-radius:7px!important;background:linear-gradient(145deg,rgba(8,17,26,.96),rgba(4,10,16,.94))!important}
+.panel-heading{height:auto!important;min-height:calc(42px + var(--font-growth))!important;padding:6px 9px!important}
+.panel-heading h2{font-size:calc(9px + var(--font-adjust))!important}.panel-heading small{font-size:calc(5px + var(--font-adjust))!important}
+.fact-badge,.passive-badge,.candidate-badge{font:calc(5px + var(--font-adjust)) "Cascadia Mono",Consolas,monospace;letter-spacing:.12em;border-radius:999px;padding:3px 7px}
+.fact-badge{color:#75e6f8;border:1px solid rgba(65,216,255,.32);background:rgba(28,150,186,.08)}
+.passive-badge{color:#78d9c6;border:1px solid rgba(40,223,198,.3)}
+.candidate-badge{color:#b6a8e9;border:1px solid rgba(123,97,255,.28)}
+
+/* Explorer */
+.explorer-panel{border-color:rgba(57,139,193,.28)!important}.tree-list{display:grid;gap:4px;padding:7px}.tree-node{width:100%;min-width:0;border:1px solid rgba(64,134,179,.11);border-radius:5px;background:rgba(4,11,18,.64);display:grid;grid-template-columns:9px minmax(0,1fr) auto;gap:7px;align-items:center;padding:6px 7px;text-align:left;cursor:pointer;color:#8ba3b3}.tree-node:hover,.tree-node.active{border-color:rgba(63,201,243,.34);background:rgba(24,86,111,.16)}.tree-node.primary{box-shadow:inset 2px 0 0 #41d9ff}.tree-node.reference{box-shadow:inset 2px 0 0 rgba(123,97,255,.65)}.tree-node>i{width:6px;height:6px;border-radius:50%;background:#3ed9ef;box-shadow:0 0 8px rgba(62,217,239,.55)}.tree-node.reference>i{background:#8d7afa}.tree-node span{min-width:0}.tree-node b,.tree-node small{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.tree-node b{color:#d7e5ec;font:calc(7px + var(--font-adjust)) "Cascadia Mono",Consolas,monospace}.tree-node small{margin-top:2px;color:#687f90;font-size:calc(5px + var(--font-adjust))}.tree-node em{font:calc(4.5px + var(--font-adjust)) "Cascadia Mono",Consolas,monospace;color:#60b8cb;font-style:normal}.experiment-index{display:flex;flex-wrap:wrap;gap:4px;padding:0 7px 7px}.experiment-index span,.experiment-index b{font:calc(4.5px + var(--font-adjust)) "Cascadia Mono",Consolas,monospace;padding:3px 5px;border:1px solid rgba(79,136,173,.12);border-radius:3px;color:#70899a}.experiment-index span{color:#a994f3;border-color:rgba(123,97,255,.22)}
+
+/* Resident operation panel */
+.resident32-panel{height:auto!important;border-color:rgba(41,208,186,.28)!important}.resident32-live{gap:4px!important;padding:6px!important}.resident32-live div{padding:5px!important}.resident32-live strong{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.resident32-kv{margin:0!important;padding:3px 8px!important}.resident32-kv>div{padding:3px 0!important}.resident32-actions{grid-template-columns:1fr 1fr!important;gap:4px!important;padding:5px 7px 7px!important}.resident32-actions button{height:calc(25px + var(--font-growth))!important}.resident32-actions .quiet-danger{border-color:rgba(255,93,111,.2);color:#c58d96;background:rgba(59,18,25,.35)}
+.sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+
+/* Membrane is a boundary instrument, not the hero. */
+.membrane-panel{height:auto!important;display:grid!important;grid-template-rows:auto minmax(78px,1fr) auto auto;border-color:rgba(59,167,216,.24)!important}.membrane-core-row{height:auto!important;min-height:0!important;padding:6px 9px!important;grid-template-columns:1fr 68px!important}.membrane-emblem{width:56px!important;height:56px!important}.membrane-rules{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;padding:0 7px 5px}.membrane-rules span{min-width:0;padding:4px;border:1px solid rgba(61,135,180,.1);font-size:calc(4.5px + var(--font-adjust));color:#6e8596;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.membrane-rules b{display:block;color:#e6ae62;margin-top:2px}.membrane-panel .gates{grid-template-columns:repeat(6,1fr)!important;padding:0 7px 7px}.membrane-panel .gate i{width:17px!important;height:17px!important}
+
+/* Throne: membrane enclosure, live 32C aggregate, semantic satellites. */
+.topology-panel{position:relative!important;display:grid!important;grid-template-rows:auto auto minmax(0,1fr) auto!important;min-width:0!important;min-height:0!important;border-color:rgba(55,186,234,.38)!important;box-shadow:inset 0 0 60px rgba(13,85,123,.035),0 0 32px rgba(16,126,179,.06)!important}
+.topology-head{grid-template-columns:minmax(220px,1fr) auto auto!important}.topology-truth{display:flex;align-items:center;gap:7px;color:#89a8b8;font:calc(5px + var(--font-adjust)) "Cascadia Mono",Consolas,monospace}
+.topology-modes{display:grid;grid-template-columns:repeat(8,minmax(64px,1fr));gap:1px;padding:4px 6px;border-bottom:1px solid rgba(55,144,192,.13);background:#050d14}.topology-modes button{height:25px;border:0;border-bottom:1px solid transparent;background:rgba(10,23,34,.8);color:#5e788a;font:calc(5px + var(--font-adjust)) "Cascadia Mono",Consolas,monospace;letter-spacing:.06em;cursor:pointer}.topology-modes button:hover:not(:disabled),.topology-modes button.active{color:#7fe9fa;border-bottom-color:#42d8ff;background:rgba(21,89,115,.17)}.topology-modes button:disabled{color:#334553;cursor:not-allowed;text-decoration:line-through;text-decoration-color:rgba(123,97,255,.35)}
+.canvas-wrap{min-height:0!important;position:relative!important;background:radial-gradient(circle at 50% 49%,rgba(18,105,147,.22),transparent 27%),radial-gradient(circle at 50% 50%,rgba(123,97,255,.06),transparent 49%),#02080d!important;overflow:hidden!important;isolation:isolate}
+#networkCanvas{position:absolute;inset:0;width:100%;height:100%;z-index:1}.membrane-frame{position:absolute;z-index:0;inset:22px;border:1px solid rgba(58,184,255,.23);border-radius:44% 44% 8px 8px/16% 16% 8px 8px;box-shadow:inset 0 0 34px rgba(48,171,221,.035),0 0 22px rgba(48,171,221,.04);pointer-events:none}.membrane-frame::before,.membrane-frame::after{content:"";position:absolute;inset:8px;border:1px dashed rgba(58,184,255,.07);border-radius:inherit}.membrane-frame::after{inset:-5px;border-style:solid;border-color:rgba(58,184,255,.07);animation:membraneBreath 5s ease-in-out infinite}.membrane-frame span{position:absolute;left:50%;top:-8px;transform:translateX(-50%);padding:0 8px;background:#030a10;color:#4f8299;font:calc(4.5px + var(--font-adjust)) "Cascadia Mono",Consolas,monospace;letter-spacing:.16em}@keyframes membraneBreath{50%{opacity:.35;box-shadow:0 0 25px rgba(58,184,255,.1)}}
+.vcell-throne{width:clamp(176px,14vw,255px)!important;height:clamp(176px,14vw,255px)!important;z-index:4!important;top:49%!important}.throne-core{width:clamp(78px,5.5vw,103px)!important;height:clamp(78px,5.5vw,103px)!important;animation:throneBreathe 4.2s ease-in-out infinite!important}.throne-core span{font-size:calc(13px + var(--font-adjust))!important}.throne-core b{max-width:72px;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.vcell-throne>small{bottom:0!important;color:#759db0!important}
+.throne-caption{position:absolute;z-index:5;left:50%;top:calc(49% + clamp(96px,8vw,135px));transform:translateX(-50%);display:flex;align-items:center;gap:7px;white-space:nowrap;background:rgba(3,11,17,.88);border:1px solid rgba(58,184,255,.18);border-radius:999px;padding:5px 9px;font:calc(5px + var(--font-adjust)) "Cascadia Mono",Consolas,monospace}.throne-caption b{color:#d9f7ff}.throne-caption span{color:#66d8ea}.throne-caption em{color:#8199a9;font-style:normal}
+.topology-node{position:absolute;z-index:3;width:clamp(112px,9vw,160px);padding:6px 8px;border:1px solid rgba(64,144,194,.19);border-radius:5px;background:rgba(4,13,21,.88);box-shadow:0 7px 18px rgba(0,0,0,.16)}.topology-node::after{content:"";position:absolute;background:linear-gradient(90deg,rgba(58,184,255,.36),transparent)}.topology-node small,.topology-node b,.topology-node span{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.topology-node small{color:#55768a;font-size:calc(4px + var(--font-adjust));letter-spacing:.08em}.topology-node b{color:#bad3df;margin-top:2px;font:calc(6px + var(--font-adjust)) "Cascadia Mono",Consolas,monospace}.topology-node span{color:#5fa3b7;margin-top:2px;font-size:calc(4.5px + var(--font-adjust))}.node-membrane{left:50%;top:6%;transform:translateX(-50%);text-align:center}.node-membrane::after{left:50%;top:100%;width:1px;height:38px;background:linear-gradient(rgba(58,184,255,.34),transparent)}.node-geometry{left:4%;top:24%}.node-geometry::after{left:100%;top:50%;width:7vw;height:1px}.node-temporal{right:4%;top:24%;text-align:right}.node-temporal::after{right:100%;top:50%;width:7vw;height:1px;transform:rotate(180deg)}.node-vscope{left:6%;bottom:14%}.node-vscope::after{left:100%;top:40%;width:8vw;height:1px}.node-laa{right:6%;bottom:14%;text-align:right}.node-laa::after{right:100%;top:40%;width:8vw;height:1px;transform:rotate(180deg)}.node-reference{right:3%;bottom:3%;border-color:rgba(123,97,255,.19);opacity:.78;text-align:right}.node-reference b{color:#a99ee1}.node-reference span{color:#736a9b}
+.truth-note{position:absolute;z-index:5;left:11px;bottom:9px;max-width:62%;display:flex;gap:8px;align-items:center;padding:5px 8px;border:1px solid rgba(56,143,194,.13);border-radius:999px;background:rgba(3,10,16,.82);font:calc(4.5px + var(--font-adjust)) "Cascadia Mono",Consolas,monospace;color:#628397}.truth-note b{color:#6edcee}
+.topology-footer{height:auto!important;min-height:calc(48px + var(--font-growth))!important;grid-template-columns:1.2fr 1fr 1fr .8fr 1.2fr 80px!important;padding:5px 8px!important}.topology-footer>div{min-width:0;border-right:1px solid rgba(65,137,179,.1);padding:0 7px}.topology-footer small,.topology-footer b{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.topology-footer small{color:#5e7789;font-size:calc(4.5px + var(--font-adjust))}.topology-footer b{margin-top:3px;color:#8fc5d5;font:calc(6px + var(--font-adjust)) "Cascadia Mono",Consolas,monospace}
+
+/* Context inspector and vSCOPE */
+.inspector-panel{border-color:rgba(40,223,198,.22)!important}.inspector-identity{display:grid;grid-template-columns:1fr auto;align-items:center;padding:7px 9px;border-bottom:1px solid rgba(55,139,181,.1)}.inspector-identity small,.inspector-identity strong{display:block}.inspector-identity small{color:#658091;font-size:calc(4.5px + var(--font-adjust))}.inspector-identity strong{margin-top:2px;color:#d9ebf1;font:calc(8px + var(--font-adjust)) "Cascadia Mono",Consolas,monospace}.inspector-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:6px 8px}.inspector-grid>div{min-width:0;padding:5px;border:1px solid rgba(55,131,176,.1);background:rgba(2,9,14,.5)}.inspector-grid small,.inspector-grid b{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.inspector-grid small{font-size:calc(4px + var(--font-adjust));color:#617b8c}.inspector-grid b{margin-top:3px;font:calc(5.5px + var(--font-adjust)) "Cascadia Mono",Consolas,monospace;color:#8fc9d8}.shell-energy{display:grid;gap:4px;padding:3px 8px}.shell-energy>div{display:grid;grid-template-columns:52px 1fr 64px;gap:6px;align-items:center;font:calc(4.5px + var(--font-adjust)) "Cascadia Mono",Consolas,monospace}.shell-energy span{color:#688293}.shell-energy i{height:3px;background:#10222d;overflow:hidden}.shell-energy i b{display:block;width:0;height:100%;background:linear-gradient(90deg,#218ccc,#35e0ef);box-shadow:0 0 7px rgba(53,224,239,.5);transition:width .25s}.shell-energy em{font-style:normal;color:#8cb8c6;text-align:right}.arrival-summary{margin:5px 8px 8px;padding:6px;border:1px solid rgba(123,97,255,.13);background:rgba(24,18,49,.2)}.arrival-summary small,.arrival-summary b{display:block}.arrival-summary small{color:#756f99;font-size:calc(4px + var(--font-adjust))}.arrival-summary b{margin-top:3px;color:#9e96bf;font:calc(5px + var(--font-adjust)) "Cascadia Mono",Consolas,monospace;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.observation-panel{height:auto!important;min-height:0!important;overflow:hidden!important}.scope-block{margin:5px 7px 0!important;padding:5px!important}.scope-block .subhead{margin-bottom:4px!important}.scope-block em{font-style:normal;color:#3dbbcf}.scope-block button,.lock-btn{cursor:pointer}.observation-panel #signalCanvas{height:clamp(42px,5vh,58px)!important}.state-block{flex:0 0 clamp(62px,7vh,75px)!important}.evidence-block{flex:0 0 clamp(65px,7.3vh,80px)!important}.snapshots{grid-template-columns:repeat(4,1fr)!important}.snapshot{height:48px!important}.snapshot-visual{height:22px!important}.reference-scope{margin:5px 7px 7px;padding:6px;border:1px solid rgba(123,97,255,.14);background:rgba(18,13,36,.22)}.reference-scope .subhead{margin-bottom:4px}.reference-scope .telemetry-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:4px}.reference-scope .telemetry-grid>div{padding:4px;border:1px solid rgba(123,97,255,.09)}.reference-scope small,.reference-scope b{display:block}.reference-scope small{font-size:calc(4px + var(--font-adjust));color:#6e6b86}.reference-scope b{margin-top:2px;color:#a9a2c6;font:calc(5px + var(--font-adjust)) "Cascadia Mono",Consolas,monospace}.reference-warning{display:block;margin-top:5px;color:#786f96;font-size:calc(4px + var(--font-adjust));white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.future-panel{border-color:rgba(123,97,255,.17)!important}.future-lanes{display:flex;align-items:center;gap:5px;padding:8px 9px 3px;white-space:nowrap}.future-lanes span,.future-lanes b,.future-lanes em{padding:3px 5px;border:1px solid rgba(123,97,255,.16);border-radius:3px;font:calc(4.5px + var(--font-adjust)) "Cascadia Mono",Consolas,monospace;font-style:normal;color:#847aa8}.future-lanes b{color:#a9a0c9}.future-lanes em{text-decoration:line-through;text-decoration-color:#76659e}.future-lanes i{font-style:normal;color:#4c4762}.future-panel p{margin:3px 9px 8px;color:#69647c;font-size:calc(4.5px + var(--font-adjust));line-height:1.45}
+
+/* Evidence lane stays useful while remaining subordinate to the Throne. */
+.evidence-stream{height:auto!important;min-height:0!important}.stream-head{height:34px!important;padding:4px 8px!important;grid-template-columns:minmax(245px,330px) minmax(320px,1fr) auto!important}.stream-head>div:first-child span{display:inline!important;margin-left:9px}.stream-body{height:49px!important;padding:5px 8px!important}.event-card{height:39px!important;flex-basis:190px!important;padding:4px 6px!important}.event-card span{max-width:150px}.stream-axis{height:16px!important;margin:0 8px!important}
+
+/* Diagnostics and settings */
+.probe-drawer{z-index:30!important;width:min(980px,72vw)!important;right:-76vw!important}.probe-drawer.open{right:8px!important}.diagnostic-status{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;padding:8px 10px;border-bottom:1px solid rgba(67,143,190,.13)}.diagnostic-status span{padding:6px;border:1px solid rgba(67,143,190,.1);color:#6d8797;font:calc(5px + var(--font-adjust)) "Cascadia Mono",Consolas,monospace}.diagnostic-status b{display:block;margin-top:3px;color:#8cc9d8}.probe-buttons{grid-template-columns:repeat(5,1fr)!important}.probe-drawer pre{height:calc(100% - 210px)!important}
+.settings-dialog{width:min(420px,90vw);border:1px solid rgba(65,184,226,.3);border-radius:9px;padding:0;color:#c6d7e0;background:linear-gradient(145deg,#09131d,#040a10);box-shadow:0 24px 80px rgba(0,0,0,.6),0 0 30px rgba(31,155,207,.1)}.settings-dialog::backdrop{background:rgba(0,5,9,.72);backdrop-filter:blur(5px)}.settings-dialog form{padding:0}.settings-head{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;border-bottom:1px solid rgba(65,151,199,.15)}.settings-head small{color:#628297;font-size:9px;letter-spacing:.14em}.settings-head h2{margin:3px 0 0;font-size:16px}.settings-head button{width:30px;height:30px;border:1px solid rgba(73,151,199,.2);border-radius:5px;background:#07111a;color:#91a8b7}.settings-dialog fieldset{margin:14px 16px;padding:12px;border:1px solid rgba(67,143,190,.15);display:flex;gap:18px}.settings-dialog legend{padding:0 6px;color:#7e9aad;font-size:11px}.settings-dialog label{font-size:12px;color:#abc0cb}.settings-dialog>form>p{margin:10px 16px 16px;color:#647c8d;font-size:10px}.settings-dialog .font-adjust{width:170px;height:38px}.settings-dialog .font-readout small{font-size:7px}.settings-dialog .font-readout strong{font-size:9px}
+
+.is-focus{animation:panelFocus .8s ease-out}@keyframes panelFocus{0%{box-shadow:0 0 0 rgba(58,184,255,0)}45%{box-shadow:0 0 38px rgba(58,184,255,.25)}100%{box-shadow:0 0 0 rgba(58,184,255,0)}}
+.topology-panel.expanded{position:fixed!important;z-index:24!important;inset:8px 8px 118px 72px!important;background:#030a10!important}
+.event-empty,.gate-empty{align-self:center;color:#526f82;font:calc(5px + var(--font-adjust)) "Cascadia Mono",Consolas,monospace;letter-spacing:.08em;padding:6px}
+
+/* 49-inch / wide display: invest extra width in the central observatory. */
+@media (min-width:2200px) and (min-height:1200px){
+  :root{--vbs-evidence:116px}.cockpit{grid-template-columns:clamp(300px,13.3vw,350px) minmax(0,1fr) clamp(365px,17vw,440px)!important}.vcell-throne{width:270px!important;height:270px!important}.topology-node{width:170px}.left-stack{grid-template-rows:minmax(205px,.9fr) minmax(320px,1.42fr) minmax(220px,.96fr)!important}.right-stack{grid-template-rows:minmax(245px,1fr) minmax(330px,1.35fr) minmax(120px,.52fr)!important}}
+
+/* Compact fallback: preserve the core and remove subordinate decoration first. */
+@media (max-width:1500px),(max-height:860px){
+  :root{--vbs-topbar:54px;--vbs-metrics:44px;--vbs-evidence:78px}.app-shell{grid-template-columns:54px minmax(0,1fr)!important}.rail{padding-inline:5px}.brand-mark{width:39px;height:39px}.rail-btn{width:38px;height:38px}.topbar{grid-template-columns:205px minmax(350px,1fr) 330px!important}.title-lockup p,.metric-card b,.topology-truth b{display:none}.top-actions{grid-template-columns:88px 88px 36px 110px!important}.cockpit{grid-template-columns:235px minmax(500px,1fr) 305px!important}.left-stack{grid-template-rows:minmax(145px,.8fr) minmax(240px,1.35fr) minmax(150px,.82fr)!important}.right-stack{grid-template-rows:minmax(185px,1fr) minmax(245px,1.25fr)!important}.future-panel{display:none}.node-reference,.node-membrane{display:none}.topology-node{width:110px}.stream-head{grid-template-columns:210px 1fr auto!important}.stream-body{height:31px!important}.event-card{height:26px!important}.stream-axis{display:none}}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
+
+/* ==========================================================
+   TYPOGRAPHY SCALE V3
+   Base UI is 10–12pt. User offset is a global −3pt..+3pt.
+   ========================================================== */
+:root{
+  --type-offset:0pt;
+  --type-growth:0pt;
+  --font-adjust:0pt;
+  --font-growth:var(--type-growth);
+  --vbs-topbar:calc(82px + var(--type-growth));
+  --vbs-metrics:calc(66px + var(--type-growth));
+  font-size:calc(11pt + var(--type-offset))!important;
+}
+body,button,select,input{font-size:calc(11pt + var(--type-offset))!important;line-height:1.3}
+small,.subhead,.panel-heading small,.metric-card small,.tree-node small,.inspector-grid small,.shell-energy span,.arrival-summary small,.reference-scope small,.topology-footer small,.future-panel p,.event-card small,.event-card span,.snapshot span,.stream-head span{
+  font-size:calc(10pt + var(--type-offset))!important;
+  line-height:1.25!important;
+}
+.panel-heading h2{font-size:calc(12pt + var(--type-offset))!important;line-height:1.2!important}
+.title-lockup h1{font-size:calc(15pt + var(--type-offset))!important}.title-lockup p{font-size:calc(10pt + var(--type-offset))!important}
+.system-status strong,.metric-card strong,.resident32-live strong,.inspector-identity strong{font-size:calc(12pt + var(--type-offset))!important}
+.system-status span,.metric-card b,.tree-node b,.tree-node em,.experiment-index span,.experiment-index b,.resident32-live small,.resident32-kv>div,.membrane-rules span,.fact-badge,.passive-badge,.candidate-badge,.topology-truth,.topology-modes button,.topology-footer b,.inspector-grid b,.shell-energy>div,.arrival-summary b,.reference-scope b,.future-lanes span,.future-lanes b,.future-lanes em,.diagnostic-status span,.event-empty,.gate-empty,.filter-tabs button,.auto-scroll,.event-card b,.snapshot b,.state-node b,.state-node span,.probe-buttons button,.probe-drawer pre{
+  font-size:calc(10pt + var(--type-offset))!important;
+  line-height:1.25!important;
+}
+.resident32-actions button,.hud-button,.lock-btn,.icon-button{font-size:calc(10.5pt + var(--type-offset))!important}
+.clock strong{font-size:calc(12pt + var(--type-offset))!important}.clock small{font-size:calc(10pt + var(--type-offset))!important}
+.font-readout small{font-size:calc(9pt + var(--type-offset))!important}.font-readout strong{font-size:calc(11pt + var(--type-offset))!important}
+
+/* Geometry grows with readable type instead of clipping text. */
+.topbar{height:var(--vbs-topbar)!important;min-height:var(--vbs-topbar)!important;grid-template-columns:clamp(248px,14vw,300px) minmax(500px,1fr) clamp(455px,24vw,510px)!important;align-items:stretch!important;overflow:hidden}
+.metric-strip{height:var(--vbs-metrics)!important;min-height:var(--vbs-metrics)!important}
+.panel-heading{min-height:calc(50px + var(--font-growth))!important}
+.left-stack{grid-template-rows:minmax(205px,.9fr) minmax(330px,1.38fr) minmax(205px,.92fr)!important}
+.right-stack{grid-template-rows:minmax(240px,1fr) minmax(330px,1.35fr) minmax(125px,.52fr)!important}
+.tree-node{padding:7px 8px!important}.resident32-kv>div{padding:5px 0!important}.resident32-actions button{height:calc(34px + var(--font-growth))!important}
+.topology-modes button{height:calc(34px + var(--font-growth))!important}.topology-footer{min-height:calc(60px + var(--font-growth))!important}
+
+/* Header collision control: every region owns its width and never leaks into the next row. */
+.system-status{height:100%!important;min-width:0!important;grid-template-columns:42px minmax(0,1fr)!important;padding:10px 12px!important;overflow:hidden}
+.system-status>div:last-child{min-width:0;overflow:hidden}.system-status small,.system-status strong,.system-status span{max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.system-status strong{margin:2px 0!important;line-height:1.15!important}
+.title-lockup{height:100%;min-width:0;overflow:hidden;padding:7px 8px}.title-lockup>div:nth-child(2){min-width:0}.title-lockup h1,.title-lockup p{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.title-lockup h1{letter-spacing:.19em!important;line-height:1.15!important}.title-lockup p{margin:5px 0 0!important;line-height:1.15!important}.title-rule{flex:0 1 64px;min-width:20px}
+.top-actions{height:100%;min-width:0!important;grid-template-columns:minmax(126px,1fr) minmax(118px,1fr) 44px minmax(138px,1fr)!important;gap:6px!important;align-items:center!important}.top-actions>*{min-width:0}.hud-button{height:48px!important;padding:0 9px!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;line-height:1.15!important}.icon-hud{padding:0!important}.clock{width:100%;height:58px!important;padding:8px 38px 7px 10px!important;overflow:hidden}.clock small,.clock strong{white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;line-height:1.1!important}.radar-ring{right:7px!important;top:14px!important;width:28px!important;height:28px!important}.radar-ring::before{inset:4px!important}.radar-ring::after{inset:9px!important}
+.metric-card{height:100%!important;min-width:0!important;padding:8px 10px!important}.metric-card>div{min-width:0}.metric-card small,.metric-card b,.metric-card strong{max-width:100%;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important}.metric-card strong{margin-left:5px}.spark{max-width:28%}
+.panel-heading>div:first-child{min-width:0}.panel-heading small,.panel-heading h2{max-width:100%;overflow:hidden;text-overflow:ellipsis}.panel-heading small{white-space:nowrap!important;letter-spacing:.08em!important}
+
+/* ==========================================================
+   REAL 32C SPATIAL OBSERVATORY
+   Stable deterministic projection; no decorative neural mesh.
+   ========================================================== */
+.canvas-wrap{
+  background:
+    linear-gradient(rgba(71,143,178,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(71,143,178,.035) 1px,transparent 1px),
+    linear-gradient(145deg,#02080d,#040c13 58%,#02070c)!important;
+  background-size:32px 32px,32px 32px,auto!important;
+}
+.membrane-frame{inset:16px!important;border-radius:10px!important;border-color:rgba(79,168,207,.18)!important;box-shadow:inset 0 0 70px rgba(35,130,169,.025)!important}
+.membrane-frame::before{inset:7px!important;border-radius:7px!important;border-style:solid!important;border-color:rgba(79,168,207,.055)!important}.membrane-frame::after{display:none!important}
+.membrane-frame span{top:-9px!important;font-size:calc(10pt + var(--type-offset))!important;letter-spacing:.1em!important;color:#587e91!important}
+.vcell-throne,.topology-node,.throne-caption{display:none!important}
+#networkCanvas{cursor:crosshair;outline:none}#networkCanvas:focus-visible{box-shadow:inset 0 0 0 2px rgba(91,210,239,.45)}
+.topology-legend{position:absolute;z-index:4;right:14px;top:14px;display:flex;flex-wrap:wrap;justify-content:flex-end;gap:7px 12px;max-width:245px;padding:8px 10px;border:1px solid rgba(72,143,180,.14);border-radius:5px;background:rgba(3,11,17,.82);color:#7893a3;font:calc(10pt + var(--type-offset)) "Cascadia Mono",Consolas,monospace}
+.topology-legend span{display:flex;align-items:center;gap:5px}.topology-legend i{width:7px;height:7px;border-radius:50%;background:#547d94}.topology-legend i.root{width:10px;height:10px;background:#b7f4ff;box-shadow:0 0 8px rgba(80,218,246,.55)}.topology-legend i.inner{background:#47c8e5}.topology-legend i.outer{background:#667da8}.topology-legend i.energy{background:#39e5ee;box-shadow:0 0 9px #35d9ff}
+.cell-focus-card{position:absolute;z-index:5;right:14px;bottom:48px;width:236px;padding:11px 12px;border:1px solid rgba(74,161,199,.22);border-left:2px solid rgba(61,211,237,.65);border-radius:5px;background:rgba(3,11,17,.9);box-shadow:0 12px 30px rgba(0,0,0,.22)}
+.cell-focus-card>small,.cell-focus-card>strong{display:block}.cell-focus-card>small{color:#5c8194;letter-spacing:.1em}.cell-focus-card>strong{margin:4px 0 9px;color:#d9f4fa;font:600 calc(11pt + var(--type-offset)) "Cascadia Mono",Consolas,monospace}
+.cell-focus-card>div{display:grid;grid-template-columns:68px minmax(0,1fr);gap:8px;padding:4px 0;border-top:1px solid rgba(67,137,172,.09);font:calc(10pt + var(--type-offset)) "Cascadia Mono",Consolas,monospace}.cell-focus-card span{color:#5f7888}.cell-focus-card b{color:#91bdca;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.region-identity{position:absolute;z-index:4;left:18px;bottom:46px;display:flex;align-items:center;gap:9px;padding:7px 10px;border-left:2px solid #36cce8;background:rgba(3,11,17,.78);font:calc(10pt + var(--type-offset)) "Cascadia Mono",Consolas,monospace}.region-identity b{color:#d2ecf3}.region-identity span{color:#63bed1}.region-identity em,.region-identity i{color:#718c9b;font-style:normal}
+.truth-note{left:18px!important;bottom:10px!important;max-width:calc(100% - 36px)!important;border-radius:4px!important;font-size:calc(10pt + var(--type-offset))!important;padding:6px 9px!important}
+
+.settings-dialog{width:min(470px,92vw)!important}.settings-dialog fieldset{align-items:center;flex-wrap:wrap}.settings-dialog .font-adjust{width:190px!important;height:46px!important}.type-range{color:#718b9b;font:calc(10pt + var(--type-offset)) "Cascadia Mono",Consolas,monospace}
+
+@media (max-width:1500px),(max-height:860px){
+  :root{--vbs-topbar:calc(74px + var(--type-growth));--vbs-metrics:calc(60px + var(--type-growth));--vbs-evidence:82px}
+  .topbar{grid-template-columns:220px minmax(350px,1fr) 390px!important}.top-actions{grid-template-columns:100px 100px 38px 134px!important}.hud-button{padding:0 6px!important}.clock{padding-right:34px!important}.title-lockup h1{letter-spacing:.14em!important}
+  .left-stack{grid-template-rows:minmax(175px,.8fr) minmax(285px,1.35fr) minmax(175px,.82fr)!important}.right-stack{grid-template-rows:minmax(210px,1fr) minmax(285px,1.25fr)!important}
+  .experiment-index,.reference-warning,.stream-head>div:first-child span{display:none!important}.cell-focus-card{width:205px}.topology-legend{max-width:210px}.membrane-frame span{display:none}
+}

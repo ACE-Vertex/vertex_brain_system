@@ -1,0 +1,25 @@
+[package]
+name = "vertex-brain-system"
+version = "0.9.1"
+description = "Vertex Brain System with 32C Persistent Difference analysis, persistent 32C core, 4C regression reference, vSCOPE, and LAA"
+edition = "2021"
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+vcell-self-reconfiguration-000011 = { path = "../../vertex_cell/SELF_RECONFIGURATION_000011" }
+vcell-adaptive-field-000008 = { path = "../../vertex_cell/ADAPTIVE_FIELD_000008" }
+vcell-geometry-reuse-000014 = { path = "../../vertex_cell/GEOMETRY_REUSE_000014" }
+vcell-delta-propagation-000015 = { path = "../../vertex_cell/DELTA_PROPAGATION_000015" }
+vcell-temporal-frontier-000016 = { path = "../../vertex_cell/TEMPORAL_FRONTIER_000016" }
+vcell-time-gated-geometry-000017 = { path = "../../vertex_cell/TIME_GATED_GEOMETRY_000017" }
+vcell-region-flow-000009 = { path = "../../vertex_cell/REGION_FLOW_000009" }
+
+[profile.release]
+strip = true
+lto = true
+codegen-units = 1

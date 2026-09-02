@@ -1,0 +1,19 @@
+{
+  "product": "Vertex Brain System",
+  "version": "0.9.1",
+  "observation": "vSCOPE integrated",
+  "connector": "Brain Membrane v1",
+  "analysis_adapter": "LAA 0.1 / BLACK BOX ACTIVE",
+  "resident_core": "vCELL Mount v1 / ENTHRONED",
+  "resident_baseline": "VCELL_RESIDENT_RESPONSE_BASELINE_000001 / PRE-TRANSFER",
+  "ui_typography": "BASE 10-12pt / SCALE OFFSET -3pt..+3pt / DEFAULT 0pt",
+  "response_separability": "VCELL_4C_RESPONSE_SEPARABILITY_000001 / LLM LOCKED",
+  "scale_expansion": "VCELL_32C_SCALE_EXPANSION_000001 / PROMOTION_SOURCE",
+  "resident32": "VCELL_32C_RESIDENT_PROMOTION_000001 / ENTHRONED",
+  "resident32_baseline": "VCELL_32C_RESIDENT_BASELINE_000001 / PRE-MEMORY",
+  "persistent_difference": "VCELL_32C_PERSISTENT_DIFFERENCE_000001 / LONG-HORIZON",
+  "ui": "NEURAL_OBSERVATORY_V3 / REAL 32C SPATIAL CORE / JA DEFAULT",
+  "resident_observation": "PASSIVE_READ / CELL_ENERGY / SHELL_ENERGY / NO_INJECTION",
+  "executable": "G:\\Vertex_Project\\Development\\vertex_brain_system\\versions\\0.9.1\\Vertex_Brain_System.exe",
+  "updated_unix": 1788281502
+}

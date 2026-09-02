@@ -1,0 +1,60 @@
+# >>> VERTEX SOURCE REPOSITORY SAFETY >>>
+# Build/cache output
+target/
+**/target/
+node_modules/
+**/node_modules/
+dist/
+build/
+.vite/
+.tauri/
+.cache/
+**/.cache/
+
+# Generated/runtime output
+versions/
+MIGRATION_BACKUPS/
+runtime/
+logs/
+*.pending
+*.log
+*.tmp
+*.bak
+
+# Local model weights / large AI artifacts
+models/
+**/models/
+*.gguf
+*.safetensors
+*.onnx
+*.pt
+*.pth
+
+# Native release binaries
+*.exe
+*.dll
+*.pdb
+*.msi
+*.msix
+*.appx
+*.dmg
+*.pkg
+
+# Secrets / credentials
+.env
+.env.*
+!.env.example
+!.env.sample
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa
+id_ed25519
+credentials.json
+secrets.json
+
+# OS noise
+.DS_Store
+Thumbs.db
+# <<< VERTEX SOURCE REPOSITORY SAFETY <<<

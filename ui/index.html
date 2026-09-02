@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="ja" data-theme="vertex">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>VERTEX BRAIN SYSTEM — Neural Observatory</title>
+  <link rel="stylesheet" href="vertex-theme.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="brain-renovation.css" />
+</head>
+<body>
+<div class="atmosphere" aria-hidden="true"><div class="grid"></div><div class="beam beam-a"></div><div class="beam beam-b"></div><div class="vignette"></div></div>
+
+<div class="app-shell">
+  <aside class="rail" aria-label="Brain navigation">
+    <div class="brand-mark"><img src="assets/vertex-project-mark.svg" alt="Vertex" /><i></i></div>
+    <nav class="rail-nav">
+      <button class="rail-btn active" data-focus="throne" aria-label="Resident Core" title="Resident Core"><span>◉</span></button>
+      <button class="rail-btn" data-focus="membrane" aria-label="Brain Membrane" title="Brain Membrane"><span>⬡</span></button>
+      <button class="rail-btn" data-focus="observation" aria-label="vSCOPE" title="vSCOPE"><span>⌇</span></button>
+      <button class="rail-btn" data-focus="evidence" aria-label="Evidence" title="Evidence"><span>▱</span></button>
+      <button class="rail-btn" data-focus="reference" aria-label="4C Reference" title="4C Reference"><span>◇</span></button>
+    </nav>
+    <div class="rail-foot"><div class="rail-pulse"></div><small>VBS<br />0.9.1</small></div>
+  </aside>
+
+  <main class="brain-main">
+    <header class="topbar">
+      <section class="system-status panel-lite">
+        <div class="status-orb"><i></i></div>
+        <div><small data-ja="SYSTEM STATE" data-en="SYSTEM STATE">SYSTEM STATE</small><strong id="systemStatus">CONNECTING</strong><span id="systemSubstatus">Native Coreを確認中</span></div>
+      </section>
+      <section class="title-lockup">
+        <div class="title-rule"></div>
+        <div><h1>VERTEX BRAIN SYSTEM</h1><p><span data-ja="NEURAL OBSERVATORY" data-en="NEURAL OBSERVATORY">NEURAL OBSERVATORY</span> · <b>32C PERSISTENT RESIDENT</b></p></div>
+        <div class="title-rule"></div>
+      </section>
+      <section class="top-actions">
+        <button id="autoFocusBtn" class="hud-button active"><span>◎</span> <span data-ja="自動フォーカス" data-en="AUTO FOCUS">自動フォーカス</span><i></i></button>
+        <button id="diagnosticsBtn" class="hud-button"><span>◇</span> <span data-ja="実験・診断" data-en="EXPERIMENTS">実験・診断</span></button>
+        <button id="settingsBtn" class="hud-button icon-hud" aria-label="Settings" title="Settings">⚙</button>
+        <div class="clock panel-lite"><small id="clockDate">JST —</small><strong id="clockTime">--:--:--</strong><span class="radar-ring"></span></div>
+      </section>
+    </header>
+
+    <section class="metric-strip" aria-label="Resident core summary">
+      <article class="metric-card vcell-core-metric"><span class="metric-icon">◉</span><div><small>RESIDENT CORE</small><b id="metricVcellMountState">CONNECTING</b></div><strong id="metricCells">—</strong></article>
+      <article class="metric-card"><span class="metric-icon">∑</span><div><small>SIGNAL ENERGY</small><b>Passive Read</b></div><strong id="metricEnergy">—</strong></article>
+      <article class="metric-card"><span class="metric-icon">⌁</span><div><small>ACTIVE CELLS</small><b id="metricNeuralState">NOT OBSERVED</b></div><strong id="metricActive">—</strong><canvas class="spark" id="neuralSpark"></canvas></article>
+      <article class="metric-card"><span class="metric-icon">⬡</span><div><small>BRAIN MEMBRANE</small><b id="metricMembraneState">CONNECTING</b></div><strong id="metricMembrane">—</strong></article>
+      <article class="metric-card"><span class="metric-icon">⌇</span><div><small>PROBE EPOCH</small><b data-ja="履歴保持" data-en="History retained">履歴保持</b></div><strong id="metricMemory">—</strong><canvas class="spark" id="memorySpark"></canvas></article>
+      <article class="metric-card laa-metric"><span class="metric-icon">◈</span><div><small>LAA</small><b id="metricLaaState">CONNECTING</b></div><strong id="metricLaaDepth">—</strong></article>
+      <article class="metric-card"><span class="metric-icon">▱</span><div><small>EVIDENCE</small><b id="metricEvidenceState">SESSION</b></div><strong id="metricEvidence">0</strong><span class="delta" id="metricEvidenceDelta">+0</span></article>
+    </section>
+
+    <section class="cockpit">
+      <aside class="left-stack">
+        <section class="panel explorer-panel" data-panel="throne">
+          <div class="panel-heading"><div><small>BRAIN / REGION EXPLORER</small><h2 data-ja="実装状態の境界" data-en="Implementation boundary">実装状態の境界</h2></div><span class="fact-badge">FACT</span></div>
+          <div class="tree-list">
+            <button class="tree-node primary active" data-focus="throne"><i></i><span><b>REGION 000032</b><small>32C Persistent Resident Core</small></span><em>RESIDENT</em></button>
+            <button class="tree-node" data-focus="observation"><i></i><span><b>vSCOPE</b><small>Integrated Observation</small></span><em>PASSIVE</em></button>
+            <button class="tree-node" data-focus="membrane"><i></i><span><b>Brain Membrane</b><small>Fail-closed boundary</small></span><em>FACT</em></button>
+            <button class="tree-node reference" data-focus="reference"><i></i><span><b>4C Regression</b><small data-ja="比較参照・Residentではない" data-en="Reference, not resident">比較参照・Residentではない</small></span><em>REFERENCE</em></button>
+          </div>
+          <div class="experiment-index"><span>EXPERIMENTS</span><b>Baseline</b><b>Difference</b><b>Separability</b><b>Time Gate</b></div>
+        </section>
+
+        <section class="panel resident32-panel">
+          <div class="panel-heading"><div><small>REGION 000032</small><h2 data-ja="Resident運用状態" data-en="Resident operations">Resident運用状態</h2></div><span class="resident32-badge" id="resident32Residency">—</span></div>
+          <div class="resident32-live">
+            <div><small>PHASE</small><strong id="resident32Phase">—</strong></div><div><small>STEP</small><strong id="resident32Step">—</strong></div>
+            <div><small>INJECTIONS</small><strong id="resident32Injections">—</strong></div><div><small>PROBE EPOCH</small><strong id="resident32Epoch">—</strong></div>
+          </div>
+          <div class="kv-list resident32-kv">
+            <div><span>ACTIVE</span><b id="resident32Active">— / —</b><i></i></div><div><span>CONTACT POINTS</span><b id="resident32Contacts">—</b><i></i></div>
+            <div><span>TOTAL ENERGY</span><b id="resident32Energy">—</b><i></i></div><div><span>PEAK AMPLITUDE</span><b id="resident32Peak">—</b><i></i></div>
+            <div><span>4C REFERENCE</span><b id="resident32Reference">—</b><i></i></div><div><span>LLM INGESTION</span><b id="resident32Llm">LOCKED</b><i class="warn"></i></div>
+          </div>
+          <div class="resident32-actions">
+            <button id="resident32PassiveBtn">PASSIVE READ</button><button id="resident32ProbeBtn">PULSE 32C</button><button id="resident32SettleBtn">SETTLE 256</button><button id="resident32ResetBtn" class="quiet-danger">RESET DYNAMIC</button>
+            <button id="resident32StatusBtn" class="sr-only" tabindex="-1">STATUS</button>
+          </div>
+        </section>
+
+        <section class="panel membrane-panel" data-panel="membrane">
+          <div class="panel-heading"><div><small>BRAIN MEMBRANE</small><h2 data-ja="外膜 / Fail Closed" data-en="Boundary / Fail Closed">外膜 / Fail Closed</h2></div><span class="fact-badge">FACT</span></div>
+          <div class="membrane-core-row"><div><small>INTEGRITY</small><strong id="membraneIntegrity">—</strong><div class="integrity-line"><i id="integrityFill"></i></div><small class="threat-label">BOUNDARY STATE</small><b id="membraneThreat">—</b></div><div class="membrane-emblem"><span></span><i></i><b></b></div></div>
+          <div class="membrane-rules"><span>Shell <b id="capShell">DENIED</b></span><span>Filesystem <b id="capFilesystem">DENIED</b></span><span>Network <b id="capNetwork">DENIED</b></span></div>
+          <div class="gates" id="membraneGates"></div>
+        </section>
+      </aside>
+
+      <section class="panel topology-panel" data-panel="throne">
+        <div class="panel-heading topology-head">
+          <div><small>NEURAL TOPOLOGY / THRONE · REAL 32C</small><h2>32C Resident Region</h2></div>
+          <div class="topology-truth"><span class="fact-badge">FACT</span><b data-ja="32C 実状態 / 集約配置" data-en="32C real state / aggregate layout">32C 実状態 / 集約配置</b></div>
+          <div class="head-tools"><button id="topologyFocusBtn" class="icon-button" title="Focus">◎</button><button id="topologyExpandBtn" class="icon-button" title="Expand">⛶</button></div>
+        </div>
+        <div class="topology-modes" role="tablist" aria-label="Topology views">
+          <button class="active" data-mode="THRONE">THRONE</button><button data-mode="REGION">REGION</button><button data-mode="FLOW">FLOW</button><button data-mode="EVIDENCE">EVIDENCE</button>
+          <button disabled title="NOT MOUNTED">LAYER</button><button disabled title="NOT MOUNTED">LINEAR</button><button disabled title="FUTURE TOPOLOGY">PARALLEL</button><button disabled title="FUTURE TOPOLOGY">CONFLUENCE</button>
+        </div>
+        <div class="canvas-wrap" id="canvasWrap">
+          <div class="membrane-frame" aria-hidden="true"><span>BRAIN MEMBRANE / OBSERVATION BOUNDARY</span></div>
+          <canvas id="networkCanvas" tabindex="0" aria-label="Real 32C resident shell topology"></canvas>
+          <div class="topology-legend" aria-label="Shell legend"><span><i class="root"></i>GENESIS · 1</span><span><i class="inner"></i>INNER · 14</span><span><i class="outer"></i>OUTER · 17</span><span><i class="energy"></i>ENERGY</span></div>
+          <div class="cell-focus-card" id="cellFocusCard" aria-live="polite">
+            <small>vSCOPE FOCUS</small><strong id="topologyFocusName">CELL 000001 · GENESIS</strong>
+            <div><span>SHELL</span><b id="topologyFocusShell">ROOT</b></div><div><span>STATE</span><b id="topologyFocusState">NOT OBSERVED</b></div>
+            <div><span>ENERGY</span><b id="topologyFocusEnergy">—</b></div><div><span>ARRIVAL</span><b id="topologyFocusArrival">NOT OBSERVED</b></div>
+          </div>
+          <div class="region-identity"><b id="vcellResidentId">REGION 000032</b><span id="vcellResidency">—</span><em id="vcellPhase">—</em><i id="throneState">—</i></div>
+          <div class="truth-note"><span data-ja="32 CORE · Shell構成とCell EnergyはRuntime実値 · 空間位置は決定論的投影" data-en="32 CORES · Runtime shell counts and cell energy · Deterministic spatial projection">32 CORE · Shell構成とCell EnergyはRuntime実値 · 空間位置は決定論的投影</span><b id="topologyModeLabel">THRONE</b></div>
+        </div>
+        <div class="topology-footer">
+          <div><small>CELLS / VERTICES</small><b><span id="topologyCells">—</span> / <span id="topologyVertices">—</span></b></div><div><small>SHELL COUNTS</small><b id="topologyShells">—</b></div>
+          <div><small>VXN SEED</small><b id="vcellSeed">—</b></div><div><small>GATE TILT</small><b id="topologyGate">—</b></div><div><small>LAA INGRESS</small><b id="vcellLaaIngress">LOCKED</b></div><div class="live-indicator">PASSIVE <i></i></div>
+        </div>
+      </section>
+
+      <aside class="right-stack">
+        <section class="panel inspector-panel" data-panel="observation">
+          <div class="panel-heading"><div><small>CONTEXT INSPECTOR</small><h2>32C Resident / Live State</h2></div><span class="passive-badge">READ ONLY</span></div>
+          <div class="inspector-identity"><div><small>SELECTED REGION</small><strong id="focusedCell">REGION 000032</strong></div><button id="focusLockBtn" class="lock-btn">⌾ Lock</button></div>
+          <div class="inspector-grid">
+            <div><small>STATE FINGERPRINT</small><b id="residentStateFingerprint">NOT OBSERVED</b></div><div><small>RESPONSE FINGERPRINT</small><b id="residentFingerprint">NOT OBSERVED</b></div>
+            <div><small>DOMINANT CELL</small><b id="residentDominant">NOT OBSERVED</b></div><div><small>REACHED CELLS</small><b id="residentReached">NOT OBSERVED</b></div>
+          </div>
+          <div class="shell-energy"><div><span>SHELL 0</span><i><b id="shellEnergyBar0"></b></i><em id="shellEnergy0">—</em></div><div><span>SHELL 1</span><i><b id="shellEnergyBar1"></b></i><em id="shellEnergy1">—</em></div><div><span>SHELL 2</span><i><b id="shellEnergyBar2"></b></i><em id="shellEnergy2">—</em></div></div>
+          <div class="arrival-summary"><small>ARRIVAL / PROPAGATION</small><b id="arrivalSummary">NOT OBSERVED — run PULSE 32C</b></div>
+        </section>
+
+        <section class="panel observation-panel">
+          <div class="panel-heading"><div><small>vSCOPE · INTEGRATED</small><h2 data-ja="受動観察" data-en="Passive observation">受動観察</h2></div><span class="absorbed">PASSIVE</span></div>
+          <div class="scope-block"><div class="subhead split"><span>SIGNAL ENERGY <em>(32C)</em></span><b id="signalValue">—</b></div><canvas id="signalCanvas"></canvas></div>
+          <div class="scope-block state-block"><div class="subhead split"><span>STATE TRANSITION</span><button id="viewTimeline">VIEW</button></div><div class="state-timeline" id="stateTimeline"></div></div>
+          <div class="scope-block evidence-block"><div class="subhead split"><span>EVIDENCE SNAPSHOTS</span><button data-focus="evidence">VIEW</button></div><div class="snapshots" id="evidenceSnapshots"></div></div>
+          <div class="reference-scope" data-panel="reference"><div class="subhead split"><span>4C REGRESSION REFERENCE</span><b id="obsState">—</b></div><div class="telemetry-grid"><div><small>ERROR</small><b id="telemetryError">—</b></div><div><small>SHELL Δ</small><b id="telemetryShell">—</b></div><div><small>EGRESS</small><b id="telemetryEgress">—</b></div><div><small>EVALUATIONS</small><b id="obsEvals">—</b></div></div><span class="reference-warning" data-ja="4CはRegression Referenceです。32C Residentと同格ではありません。" data-en="4C is a regression reference, not a peer resident.">4CはRegression Referenceです。32C Residentと同格ではありません。</span></div>
+        </section>
+
+        <section class="panel future-panel">
+          <div class="panel-heading"><div><small>TOPOLOGY EXTENSION</small><h2 data-ja="拡張予約領域" data-en="Reserved topology">拡張予約領域</h2></div><span class="candidate-badge">FUTURE</span></div>
+          <div class="future-lanes"><span>INPUT</span><i>→</i><b>GATE</b><i>⇢</i><em>PARALLEL</em><i>⇢</i><em>CONFLUENCE</em></div><p data-ja="Parallel Confluence 000018 は EXPERIMENT / NOT MOUNTED。Active表示やデータ生成は行いません。" data-en="Parallel Confluence 000018 is EXPERIMENT / NOT MOUNTED. No active state or data is fabricated.">Parallel Confluence 000018 は EXPERIMENT / NOT MOUNTED。Active表示やデータ生成は行いません。</p>
+        </section>
+      </aside>
+    </section>
+
+    <section class="panel evidence-stream" data-panel="evidence">
+      <div class="stream-head"><div><strong>EVIDENCE / TEMPORAL LANE</strong><span data-ja="観測イベント（このセッション）" data-en="Observed events in this session">観測イベント（このセッション）</span></div><div class="filter-tabs" id="eventFilters"><button class="active" data-filter="ALL">ALL</button><button data-filter="STATE">STATE</button><button data-filter="EVIDENCE">EVIDENCE</button><button data-filter="TRIGGER">TRIGGER</button><button data-filter="SYSTEM">SYSTEM</button></div><label class="auto-scroll">AUTO <input id="autoScroll" type="checkbox" checked /><i></i></label></div>
+      <div class="stream-body" id="eventStream"></div><div class="stream-axis" id="streamAxis"></div>
+    </section>
+
+    <section class="probe-drawer panel" id="probeDrawer" aria-hidden="true">
+      <div class="probe-head"><div><small>EXPERIMENT / REFERENCE</small><h2 data-ja="Native vCELL 実験とEvidence" data-en="Native vCELL experiments and evidence">Native vCELL 実験とEvidence</h2></div><button id="closeDiagnostics" class="icon-button" aria-label="Close">×</button></div>
+      <div class="diagnostic-status"><span>32C RESIDENT <b>ACTIVE</b></span><span>4C REGRESSION <b>REFERENCE</b></span><span>LLM INGESTION <b>LOCKED</b></span><span>CONFLUENCE <b>NOT MOUNTED</b></span></div>
+      <div class="probe-buttons">
+        <button data-resident32="vcell_resident32_status">32C STATUS</button><button data-resident32="vcell_resident32_passive_read">PASSIVE READ</button><button data-resident32="vcell_resident32_probe">PULSE 32C</button><button data-resident32="vcell_resident32_settle">SETTLE 256</button><button data-resident32="vcell_resident32_reset">RESET DYNAMIC</button>
+        <button data-baseline32="vcell_resident32_baseline">32C BASELINE</button><button data-persistent32="vcell_resident32_persistent_difference">32C PERSISTENT DIFFERENCE</button><button data-scale="vcell_scale_expansion">32C SCALE EVIDENCE</button><button data-baseline="vcell_resident_baseline">4C BASELINE</button><button data-separability="vcell_response_separability">4C SEPARABILITY</button>
+        <button data-probe="run_geometry_reuse">GEOMETRY REUSE</button><button data-probe="run_delta_propagation">DELTA PROPAGATION</button><button data-probe="run_temporal_frontier">TEMPORAL FRONTIER</button><button data-probe="run_time_gate">TIME GATE</button><button data-laa="laa_status">LAA STATUS</button><button data-laa="laa_probe_plan">LAA PROBE PLAN</button><button data-laa="laa_self_test">LAA SELF TEST</button>
+      </div>
+      <pre id="probeOutput">Native Coreへ接続後、ここに実測結果を表示します。合成データは使用しません。</pre>
+    </section>
+
+    <dialog id="settingsDialog" class="settings-dialog">
+      <form method="dialog"><div class="settings-head"><div><small>SETTINGS</small><h2 data-ja="表示設定" data-en="Display settings">表示設定</h2></div><button value="cancel" aria-label="Close">×</button></div>
+        <fieldset><legend data-ja="言語" data-en="Language">言語</legend><label><input type="radio" name="language" value="ja" /> 日本語</label><label><input type="radio" name="language" value="en" /> English</label></fieldset>
+        <fieldset><legend>Typography Scale Offset</legend><div class="font-adjust" id="fontAdjustControl"><button type="button" id="fontMinusBtn" aria-label="Decrease typography scale">−</button><button type="button" id="fontResetBtn" class="font-readout"><small>OFFSET</small><strong id="fontDeltaLabel">0pt</strong></button><button type="button" id="fontPlusBtn" aria-label="Increase typography scale">＋</button></div><span class="type-range">BASE 10–12pt · −3 / +3</span></fieldset>
+        <p data-ja="言語とTypography Scale Offsetはこの端末に保存されます。" data-en="Language and Typography Scale Offset are saved on this device.">言語とTypography Scale Offsetはこの端末に保存されます。</p>
+      </form>
+    </dialog>
+  </main>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
