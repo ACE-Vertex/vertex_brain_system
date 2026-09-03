@@ -217,7 +217,7 @@ catch {
 # 5. VERIFY SOURCE + DEPLOYED COPY
 # ------------------------------------------------------------
 
-$verifier = Join-Path $scriptRoot "verify_vertex_brain_system_public_site_000003.py"
+$verifier = Join-Path $scriptRoot "verify_vertex_brain_system_public_site_deploy_000005.py"
 if (-not (Test-Path $verifier)) {
     throw "Verifier missing: $verifier"
 }
@@ -255,9 +255,14 @@ $brainPaths = @(
     "scripts/build_vertex_brain_system_public_site_000001.ps1",
     "scripts/run_vertex_brain_system_public_site_000003.py",
     "scripts/verify_vertex_brain_system_public_site_000003.py",
+    "scripts/verify_vertex_brain_system_public_site_ui_000004.py",
+    "scripts/verify_vertex_brain_system_public_site_deploy_000005.py",
+    "scripts/run_vertex_brain_system_public_site_000005.py",
     "docs/VERTEX_BRAIN_SYSTEM_PUBLIC_SITE_000001.md",
     "docs/VERTEX_BRAIN_SYSTEM_PUBLIC_SITE_BILINGUAL_000002.md",
     "docs/VERTEX_BRAIN_SYSTEM_PUBLIC_SITE_PATH_GUARD_HOTFIX_000003.md"
+    "docs/VERTEX_BRAIN_SYSTEM_PUBLIC_SITE_UI_HERO_000004.md"
+    "docs/VERTEX_BRAIN_SYSTEM_PUBLIC_SITE_DEPLOY_CLOSURE_000005.md"
 )
 
 Invoke-GitClosure `
@@ -274,7 +279,7 @@ Invoke-GitClosure `
     -NoPush:$SkipGitPush
 
 Write-Host ""
-Write-Host "VERTEX_BRAIN_SYSTEM_PUBLIC_SITE_000003=PASS" -ForegroundColor Green
+Write-Host "VERTEX_BRAIN_SYSTEM_PUBLIC_SITE_000005=PASS" -ForegroundColor Green
 Write-Host "URL=$url"
 Write-Host "SOURCE=$sourceRoot"
 Write-Host "DEPLOY=$deployRoot"
